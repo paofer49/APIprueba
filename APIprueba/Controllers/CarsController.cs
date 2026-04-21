@@ -50,7 +50,7 @@ namespace APIprueba.Controllers
             var existing = await _db.Cars.FindAsync(id);
 
             if (existing == null)
-                return NotFound(new { exito = false, mensaje = "Car not found" });
+                return NotFound(new { exito = false, mensaje = "El ID no fue encontrado" });
 
             existing.Name = cars.Name;
             existing.Color = cars.Color;
