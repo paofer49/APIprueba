@@ -22,17 +22,23 @@ namespace APIprueba.Data
                 new Tabla1
                 {
                     Id = 1,
-                    Nombre = "Primero"
+                    Nombre = "Primero",
+                    Cantidad = 8,
+                    Descripcion = "Jajaja"
                 },
                 new Tabla1
                 {
                     Id = 2,
-                    Nombre = "Segundo"
+                    Nombre = "Segundo",
+                    Cantidad = 10,
+                    Descripcion = "Jejeje"
                 },
                 new Tabla1
                 {
                     Id = 3,
-                    Nombre = "Tercero"
+                    Nombre = "Tercero",
+                    Cantidad = 15,
+                    Descripcion = "Jijiji"
                 }
             );
 
@@ -41,7 +47,7 @@ namespace APIprueba.Data
                 { 
                     Id = 1,
                     Name ="Lighting McQueen",
-                    Color = "Rojo"
+                    Color = "Rojo",
                 },
                 new Cars
                 {

@@ -3,6 +3,7 @@ using APIprueba.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.ConstrainedExecution;
+using System.Text.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -89,6 +90,39 @@ namespace APIprueba.Controllers
                     data = consulta
                 });
 
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> Patch(int id, [FromBody] Dictionary<string, object> actualizar)
+        {
+            var consulta = await _db.Cars.FindAsync(id);
+
+            foreach (var item in actualizar)
+            {
+                switch (item.Key.ToLower())
+                {
+                    case "name":
+                        consulta.Name = item.Value.ToString();
+                        break;
+
+                    case "color":
+                        consulta.Color = item.Value.ToString();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            await _db.SaveChangesAsync();
+
+            return Ok(
+                new
+                {
+                    OK = true,
+                    mensaje = "Registro actualizado exitosamente",
+                    data = consulta
+                });
         }
     }
 }
