@@ -24,7 +24,7 @@ namespace APIprueba.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var consulta = _db.Cars.ToListAsync();
+            var consulta = await  _db.Cars.ToListAsync();
             return Ok(new { exito = true, consulta });
         }
 
@@ -32,7 +32,7 @@ namespace APIprueba.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var consulta = _db.Cars.Where(x => x.Id.Equals(id)).ToListAsync();
+            var consulta = await _db.Cars.Where(x => x.Id.Equals(id)).ToListAsync();
             return Ok(new { exito = true, consulta });
         }
 
